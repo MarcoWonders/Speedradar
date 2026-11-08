@@ -1,0 +1,47 @@
+# --- KiCad ---
+*.pyc
+*.bak
+*~
+_autosave-*
+*.kicad_pcb-bak
+*.kicad_sch-bak
+fp-info-cache
+python-bom.csv
+/20_Hardware/plots/
+/20_Hardware/gerbers/
+
+# --- Firmware & Software (Algemeen) ---
+# Negeer build folders, object files en executables
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+*.o
+*.obj
+*.exe
+*.hex
+*.bin
+*.elf
+
+# --- IDE's (VS Code / Keil / STM32Cube) ---
+.vscode/
+.idea/
+*.uvoptx
+*.uvguix.*
+*.mxproject
+
+# --- OS generiek ---
+Thumbs.db
+.DS_Store
+# --- KiCad local/user state ---
+*-backups/
+*.lck
+*.kicad_prl
+*.bak-*
+
+# --- Third-party or private docs: not redistributed, see README for links ---
+00_Documentation/CDM324-Radar-Module-Data-Sheet.pdf
+00_Documentation/cdm324_analog.png
+00_Documentation/cdm324_digital.png
+00_Documentation/updated_first_stage.png
+00_Documentation/R.jpg
+00_Documentation/*.docx
