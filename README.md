@@ -29,15 +29,32 @@ A long jump approach peaks at about 8 to 11 m/s, so the signal of interest is ro
 
 | XIAO pin | Function |
 |---|---|
-| A0 / D0 | Radar signal (ADC) |
-| D1 / D2 / D3 | Display CS / DC / RES |
+| A0 / D0 | Radar signal after the MAX9814 AGC stage (ADC) |
+| A1 / D1 | Raw preamp output, before the AGC (ADC, for comparison) |
+| D2 / D3 | Display DC / RES |
 | D4 / D5 | BTN1 / BTN2 |
 | D6 | CDM324 power enable |
 | D7 | Display backlight (PWM) |
-| D8 / D10 | Display SCK / MOSI |
-| D9 | Free |
+| D8 / D9 / D10 | Display SCK / CS / MOSI |
+| SWD pads (RST/DIO/CLK) | 1.27 mm header J5 |
 
 The display header's pin order (GND, VCC, SCL, SDA, RES, DC, CS, BLK) is taken from vendor listings that don't fully agree. **Check it against the silkscreen on your module before ordering the PCB.**
+
+## Prototype options
+
+The first board revision carries a few extra options so things can be measured and tuned on the bench without a new board:
+
+| Ref | What | Default | Alternative |
+|---|---|---|---|
+| TP1 to TP9 | Test points: IF, PRE, AGC, ADC, VBAT, +5V, +3.3V, 2× GND loop | - | - |
+| JP1 | MAX9814 gain | 1-2 bridged: 50 dB | Open: 60 dB, 2-3: 40 dB |
+| FB1, C15 | Filter on the radar's 5 V supply | FB1 = 0R | Fit a ferrite bead if the buck-boost's switching noise shows up in the spectrum |
+| R11 / Q3 / R12 | Display backlight drive | R11 0R, GPIO drives BLK directly | Remove R11, fit Q3 (high-side P-FET) and R12; the PWM becomes active-low |
+| Q4 | Battery reverse-polarity protection (P-FET, gate to GND) | Fitted | - |
+| R13 / C16 | Raw preamp signal to A1 through a 3.4 kHz anti-alias RC | Fitted | - |
+| J5 | SWD header (3V3, DIO, CLK, RST, GND) | - | For recovering the bootloader or debugging |
+
+Battery current can be measured with an ammeter across the power switch (SW1) while it's off.
 
 ## Placement
 
