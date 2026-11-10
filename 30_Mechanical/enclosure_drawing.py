@@ -10,12 +10,18 @@ from html import escape
 # ---------------- PCB (from MAR07_SpeedRadar.kicad_pcb) ----------------------
 PCB = (144, 75, 255, 124)                                 # x0, y0, x1, y1 -> 111 x 49
 HOLES = [(148, 79), (251, 79), (148, 120), (251, 120)]   # M3
-BUTTONS = [(213, 117), (224, 117)]                        # SW2/SW3 centres
+BUTTONS = [(213, 117), (224, 117)]                        # SW3 / SW2 centres
 RADAR = (148.0, 84.5, 173.0, 109.5)                       # CDM324 outline (J1)
 GLASS = (179.73, 84.59, 249.57, 108.97)                   # display glass (J4), measure
 WINDOW = (183.5, 85.6, 248.5, 107.9)                      # active area + ~0.5, FPC end is left, measure
-USB_X = 220.75                                            # PROPOSED: XIAO moved to top edge, USB-C up
-SWITCH_X = 240.0                                          # PROPOSED: angled OS102011MA1Q on top edge
+USB_X = 220.5                                             # XIAO (U3) USB-C at the top edge
+SWITCH_X = 238.75                                         # SW1 angled OS102011MA1Q lever at the top edge
+J3_PLUG = (231.5, 115.0, 237.7, 120.0)                    # JST-PH plug, inserted from the left
+
+# battery: LiPo 503450 (5 x 34 x 50, ~1000 mAh) in a tray on the back lid, behind the right half
+BATT = (183.5, 80.0, 234.5, 115.0)                        # cell incl. protection PCB (~51 x 35)
+TRAY_WALL = 0.8
+GROOVE = (229.0, 233.0, 2.5)                              # x0, x1, depth: wire channel in the plinth under the PCB edge
 
 # ---------------- enclosure parameters ---------------------------------------
 WALL, GAP, R = 2.0, 0.5, 3.0          # wall, PCB clearance, outer corner radius
@@ -124,6 +130,17 @@ for x, y in BUTTONS:
 for x, y in HOLES:
     circ(fx(x), fy(y), BOSS_D, HID); cross(fx(x), fy(y))
 hexagon(fx(CX), fy(CAV_Y1 + NUT_T / 2), NUT_AF, HID)
+# battery tray (behind the PCB, on the lid) + wire path to J3
+BAT = 'stroke="#7a3d00" fill="none" stroke-width="0.25" stroke-dasharray="2 0.8"'
+rect(fx(BATT[0] - TRAY_WALL), fy(BATT[1] - TRAY_WALL), fx(BATT[2] + TRAY_WALL), fy(BATT[3] + TRAY_WALL), BAT)
+text(fx(BATT[0]) + 1, fy(BATT[1]) + 3, 'battery tray (lid side)', 1.8, color='#7a3d00')
+rect(fx(J3_PLUG[0]), fy(J3_PLUG[1]), fx(J3_PLUG[2]), fy(J3_PLUG[3]), BAT)
+rect(fx(GROOVE[0]), fy(CAV_Y1), fx(GROOVE[1]), fy(CAV_Y1 + GROOVE[2]), BAT)
+S(f'<polyline points="{fx(BATT[2]):.2f},{fy(BATT[3] - 3):.2f} {fx(GROOVE[0] + 2):.2f},{fy(BATT[3] - 3):.2f} '
+  f'{fx(GROOVE[0] + 2):.2f},{fy(CAV_Y1 + 1):.2f}" stroke="#c00" fill="none" stroke-width="0.3"/>')
+S(f'<polyline points="{fx(GROOVE[0] + 2):.2f},{fy(CAV_Y1 + 1):.2f} {fx(GROOVE[0] + 2):.2f},{fy(J3_PLUG[3] - 2.5):.2f} '
+  f'{fx(J3_PLUG[0]):.2f},{fy(J3_PLUG[3] - 2.5):.2f}" stroke="#c00" fill="none" stroke-width="0.3" stroke-dasharray="0.8 0.5"/>')
+text(fx(GROOVE[1]) + 1, fy(OY1) - 4.5, 'wire groove 4 x 2.5 under PCB edge', 1.8, color='#c00')
 line(fx(CX), fy(OY0) - 2, fx(CX), fy(OY1) + 2, CEN)
 text(fx(OX0), fy(OY0) - 10, 'FRONT VIEW', 3.5, bold=True)
 # dimensions
@@ -135,7 +152,7 @@ dim_v(fy(HOLES[0][1]), fy(HOLES[2][1]), fx(OX1) + 5, f'{HOLES[2][1] - HOLES[0][1
 dim_h(fx(WINDOW[0]), fx(WINDOW[2]), fy(WINDOW[1]) - 2.5, f'{WINDOW[2] - WINDOW[0]:.1f}')
 dim_v(fy(WINDOW[1]), fy(WINDOW[3]), fx(WINDOW[2]) - 3, f'{WINDOW[3] - WINDOW[1]:.1f}')
 dim_h(fx(BUTTONS[0][0]), fx(BUTTONS[1][0]), fy(OY1) + 4, f'{BUTTONS[1][0] - BUTTONS[0][0]:.0f}', fy(BUTTONS[0][1]))
-text(fx(BUTTONS[1][0]) + 5.5, fy(BUTTONS[1][1]) + 1, f'2x Ø{BTN_HOLE}', 2.2)
+text(fx(BUTTONS[0][0]) - 5.5, fy(BUTTONS[0][1]) + 1, f'2x Ø{BTN_HOLE}', 2.2, 'end')
 text(fx(OX0) + 1, fy(OY1) - 2, f'pos. relative to outer edge: x - {OX0}, y - {OY0} (PCB coords)', 1.8, color='#555')
 
 # =============================== TOP VIEW (looking down) =====================
@@ -143,11 +160,11 @@ rect(fx(OX0), tz(Z_FRONT_OUT), fx(OX1), tz(Z_BACK_OUT), LINE, R)
 line(fx(OX0), tz(Z_LID_IN), fx(OX1), tz(Z_LID_IN), HID)
 line(fx(OX0), tz(0), fx(OX1), tz(0), HID); line(fx(OX0), tz(Z_PCB_BOT), fx(OX1), tz(Z_PCB_BOT), HID)
 uw, uh, uz = USB_CUT
-rect(fx(USB_X - uw / 2), tz(uz + uh / 2), fx(USB_X + uw / 2), tz(uz - uh / 2), PROP, 1)
-text(fx(USB_X), tz(uz - uh / 2) - 1.5, f'USB-C {uw}x{uh} (proposed)', 2.0, 'middle', '#d06000')
+rect(fx(USB_X - uw / 2), tz(uz + uh / 2), fx(USB_X + uw / 2), tz(uz - uh / 2), LINE, 1)
+text(fx(USB_X), tz(uz - uh / 2) - 1.5, f'USB-C {uw}x{uh}', 2.0, 'middle')
 sw, sh, sz = SW_CUT
-rect(fx(SWITCH_X - sw / 2), tz(sz + sh / 2), fx(SWITCH_X + sw / 2), tz(sz - sh / 2), PROP, 0.5)
-text(fx(SWITCH_X) + 5, tz(sz - sh / 2) - 1.5, f'switch slot {sw}x{sh} (proposed)', 2.0, 'start', '#d06000')
+rect(fx(SWITCH_X - sw / 2), tz(sz + sh / 2), fx(SWITCH_X + sw / 2), tz(sz - sh / 2), LINE, 0.5)
+text(fx(SWITCH_X) + 5, tz(sz - sh / 2) - 1.5, f'switch slot {sw}x{sh}', 2.0, 'start')
 text(fx(OX1) + 2, tz(0) + 0.8, 'PCB', 2.0); text(fx(OX1) + 2, tz(Z_LID_IN) + 0.8, 'lid split', 2.0)
 text(fx(OX0), tz(Z_BACK_OUT) - 16, 'TOP VIEW (front face at bottom)', 3.5, bold=True)
 dim_v(tz(Z_FRONT_OUT), tz(Z_BACK_OUT), fx(OX0) - 4, f'{D:.0f}', fx(OX0))
@@ -180,9 +197,15 @@ for y in (HOLES[0][1], HOLES[2][1]):
     rect(rz(Z_FRONT_IN), fy(y - BOSS_D / 2), rz(0), fy(y + BOSS_D / 2), HID)
     rect(rz(Z_PCB_BOT), fy(y - 2.5), rz(Z_LID_IN), fy(y + 2.5), HID)
     line(rz(Z_FRONT_IN), fy(y), rz(Z_BACK_OUT) + 0, fy(y), CEN)
-# battery
-rect(rz(Z_PCB_BOT - 2.5), fy(PCB[1] + 8), rz(Z_PCB_BOT - 7.5), fy(PCB[1] + 42), 'stroke="#555" fill="#5552" stroke-width="0.2" stroke-dasharray="1 0.6"')
-text(rz(Z_PCB_BOT - 5), fy((PCB[1] + PCB[3]) / 2), 'LiPo 503450', 1.8, 'middle', '#333', -90)
+# battery in lid tray: cell on the lid, ~1.7 mm air gap to the THT pin tips (~2 mm below the PCB)
+bz0 = Z_LID_IN + 5.2
+rect(rz(bz0), fy(BATT[1]), rz(Z_LID_IN), fy(BATT[3]), 'stroke="#7a3d00" fill="#7a3d0022" stroke-width="0.2"')
+for y in (BATT[1] - TRAY_WALL, BATT[3]):
+    rect(rz(bz0 + 0.5), fy(y), rz(Z_LID_IN), fy(y + TRAY_WALL), 'stroke="#7a3d00" fill="#7a3d00" stroke-width="0.1"')
+line(rz(Z_PCB_BOT - 2.0), fy(PCB[1]), rz(Z_PCB_BOT - 2.0), fy(PCB[3]), 'stroke="#999" stroke-width="0.15" stroke-dasharray="0.6 0.6"')
+text(rz(bz0 - 2.6), fy((BATT[1] + BATT[3]) / 2), 'LiPo 503450', 1.8, 'middle', '#7a3d00', -90)
+# wire groove under the PCB edge
+rect(rz(4.0), fy(CAV_Y1), rz(Z_LID_IN), fy(CAV_Y1 + GROOVE[2]), 'stroke="#c00" fill="none" stroke-width="0.2" stroke-dasharray="1 0.5"')
 # nut pocket
 rect(rz(NUT_Z + NUT_AF / 2), fy(CAV_Y1), rz(NUT_Z - NUT_AF / 2), fy(CAV_Y1 + NUT_T), HID)
 rect(rz(NUT_Z + TRIPOD_HOLE / 2), fy(CAV_Y1 + NUT_T), rz(NUT_Z - TRIPOD_HOLE / 2), fy(OY1), HID)
@@ -209,10 +232,14 @@ notes = [
     'Buttons: 6 mm tact switch top ~5 mm above PCB -> printed caps with',
     f'  ~{Z_FRONT_IN - 5 + 2:.1f} mm stem and retaining flange, or 13 mm tall tact switches.',
     'Tripod: 1/4"-20 hex nut pressed into the pocket from inside before the PCB.',
-    'PROPOSED (orange) - needs PCB changes:',
-    '  - XIAO (U3) moved to the top edge, USB-C facing up through the top wall.',
-    '  - SW1 changed to angled OS102011MA1Q at the top edge, lever through slot.',
-    '  - Battery wire to J3 needs a notch/slot: J3 is on the front side.',
+    'Top face: USB-C (XIAO at top edge) and slot for the angled SW1 lever.',
+    'Battery: LiPo 503450 (5x34x50, ~1000 mAh, ~6 h at ~150 mA) in a tray',
+    '  on the lid (0.8 walls), held by a 1 mm foam pad. ~1.7 mm air gap to',
+    '  the THT pin tips; Kapton over TP8 / back test pads as extra safety.',
+    'Battery wire: from the cell along the lid to a 4 x 2.5 groove in the',
+    '  plinth under the PCB edge (x 229-233), up the front of the PCB to the',
+    '  J3 plug (enters from the left). Leave ~40 mm slack to open the lid.',
+    'Radar sits in a 2.54 mm socket: set its height to the radome after fit.',
     'Stack (measure): display glass ~15, radar antenna ~16 above PCB top.',
 ]
 nx, ny = 255, 30
