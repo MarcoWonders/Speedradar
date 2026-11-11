@@ -6505,6 +6505,16 @@
 	)
 	(wire
 		(pts
+			(xy 200.66 148.59) (xy 208.28 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "193a4d92-bf44-4ec8-93b2-8d7fc06cba1b")
+	)
+	(wire
+		(pts
 			(xy 53.34 21.59) (xy 53.34 33.02)
 		)
 		(stroke
@@ -6512,16 +6522,6 @@
 			(type default)
 		)
 		(uuid "1dbfa291-c0f3-459a-8df6-6222fd9f24a3")
-	)
-	(wire
-		(pts
-			(xy 200.66 148.59) (xy 203.2 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ec3429f-1953-43c0-9707-185f5c9ffc80")
 	)
 	(wire
 		(pts
@@ -6782,6 +6782,16 @@
 			(type default)
 		)
 		(uuid "4353fa3b-1bab-4c87-8d99-7b903d46f163")
+	)
+	(wire
+		(pts
+			(xy 184.15 151.13) (xy 190.5 151.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4354baf2-2c5f-4586-a0bb-63bb2b7e1f73")
 	)
 	(wire
 		(pts
@@ -7412,16 +7422,6 @@
 			(type default)
 		)
 		(uuid "8f11d517-9785-4cb8-8a9f-fc2f06fbe5a6")
-	)
-	(wire
-		(pts
-			(xy 190.5 151.13) (xy 187.96 151.13)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f46f855-4571-4aec-9bb8-9989606a3f4b")
 	)
 	(wire
 		(pts
@@ -8284,7 +8284,7 @@
 		(uuid "07afa759-9527-414d-8f5b-adad5c04b02d")
 	)
 	(label "VBAT_IN"
-		(at 187.96 151.13 180)
+		(at 208.28 148.59 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8734,7 +8734,7 @@
 		(uuid "eafe36d7-61e7-4cdd-9c86-b1c0efea5442")
 	)
 	(label "VBAT"
-		(at 203.2 148.59 0)
+		(at 184.15 151.13 0)
 		(effects
 			(font
 				(size 1.27 1.27)
