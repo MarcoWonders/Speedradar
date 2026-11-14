@@ -45,3 +45,5 @@ Thumbs.db
 00_Documentation/updated_first_stage.png
 00_Documentation/R.jpg
 00_Documentation/*.docx
+
+__pycache__/

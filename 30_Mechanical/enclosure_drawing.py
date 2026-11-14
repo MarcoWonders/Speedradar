@@ -15,7 +15,7 @@ RADAR = (148.0, 84.5, 173.0, 109.5)                       # CDM324 outline (J1)
 GLASS = (179.73, 84.59, 249.57, 108.97)                   # display glass (J4), measure
 WINDOW = (183.5, 85.6, 248.5, 107.9)                      # active area + ~0.5, FPC end is left, measure
 USB_X = 220.5                                             # XIAO (U3) USB-C at the top edge
-SWITCH_X = 238.75                                         # SW1 angled OS102011MA1Q lever at the top edge
+SWITCH_X = 236.75                                         # SW1 angled OS102011MA1Q lever centre (pin 2) at the top edge
 J3_PLUG = (231.5, 115.0, 237.7, 120.0)                    # JST-PH plug, inserted from the left
 
 # battery: LiPo 503450 (5 x 34 x 50, ~1000 mAh) in a tray on the back lid, behind the right half
@@ -32,10 +32,11 @@ Z_LID_IN = -10.5                      # leaves ~6.4 mm for a 5 mm LiPo (e.g. 503
 Z_FRONT_OUT, Z_BACK_OUT = Z_FRONT_IN + WALL, Z_LID_IN - WALL
 RADOME = 1.0                          # front wall thinned to 1 mm over the radar, no infill gaps
 BTN_HOLE = 8.5
-BOSS_D = 6.0
+BOSS_D = 7.0                          # Ø4.2 insert hole leaves 1.4 mm wall
 NUT_AF, NUT_T, TRIPOD_HOLE = 11.4, 5.8, 6.5   # 1/4"-20 hex nut pocket (11.11 AF, 5.56 thick)
-USB_CUT = (12.5, 7.0, 2.6)            # w, h, centre z (USB-C plug overmold clearance)
-SW_CUT = (7.5, 3.2, 2.0)              # w, h, centre z (lever slot)
+USB_CUT = (12.5, 7.0, 2.8)            # w, h, centre z (USB-C plug overmold clearance)
+SW_CUT = (7.5, 4.0, 2.2)              # w, h, centre z (lever slot; open to the back so the PCB can drop in)
+NUT_WALL = 2.0                        # plinth material under the nut (tripod screw must reach the nut)
 
 # derived outer box (front view, PCB coordinates)
 OX0, OY0 = PCB[0] - GAP - WALL, PCB[1] - GAP - WALL
@@ -129,7 +130,7 @@ for x, y in BUTTONS:
     circ(fx(x), fy(y), BTN_HOLE); cross(fx(x), fy(y), 5.5)
 for x, y in HOLES:
     circ(fx(x), fy(y), BOSS_D, HID); cross(fx(x), fy(y))
-hexagon(fx(CX), fy(CAV_Y1 + NUT_T / 2), NUT_AF, HID)
+rect(fx(CX - NUT_AF / 2), fy(OY1 - NUT_WALL - NUT_T), fx(CX + NUT_AF / 2), fy(OY1 - NUT_WALL), HID)
 # battery tray (behind the PCB, on the lid) + wire path to J3
 BAT = 'stroke="#7a3d00" fill="none" stroke-width="0.25" stroke-dasharray="2 0.8"'
 rect(fx(BATT[0] - TRAY_WALL), fy(BATT[1] - TRAY_WALL), fx(BATT[2] + TRAY_WALL), fy(BATT[3] + TRAY_WALL), BAT)
@@ -175,7 +176,7 @@ dim_h(fx(OX0), fx(SWITCH_X), tz(Z_BACK_OUT) - 12, f'{SWITCH_X - OX0:.1f}', tz(Z_
 rect(fx(OX0), bz(Z_FRONT_OUT), fx(OX1), bz(Z_BACK_OUT), LINE, R)
 line(fx(OX0), bz(Z_LID_IN), fx(OX1), bz(Z_LID_IN), HID)
 circ(fx(CX), bz(NUT_Z), TRIPOD_HOLE); hexagon(fx(CX), bz(NUT_Z), NUT_AF, HID); cross(fx(CX), bz(NUT_Z), 8)
-text(fx(CX) + 9, bz(NUT_Z) + 1, f'1/4"-20 tripod: Ø{TRIPOD_HOLE} + hex nut pocket {NUT_AF} AF x {NUT_T} deep (from inside)', 2.0)
+text(fx(CX) + 9, bz(NUT_Z) + 1, f'1/4"-20 tripod: Ø{TRIPOD_HOLE} + nut slot {NUT_AF} x {NUT_T}, nut slides in from the back', 2.0)
 text(fx(OX0), bz(Z_BACK_OUT) + 7, 'BOTTOM VIEW (front face at top)', 3.5, bold=True)
 dim_h(fx(OX0), fx(CX), bz(Z_BACK_OUT) + 13, f'{CX - OX0:.0f}', bz(Z_BACK_OUT))
 dim_v(bz(Z_FRONT_OUT), bz(NUT_Z), fx(OX0) - 4, f'{Z_FRONT_OUT - NUT_Z:.1f}', fx(OX0))
@@ -207,8 +208,8 @@ text(rz(bz0 - 2.6), fy((BATT[1] + BATT[3]) / 2), 'LiPo 503450', 1.8, 'middle', '
 # wire groove under the PCB edge
 rect(rz(4.0), fy(CAV_Y1), rz(Z_LID_IN), fy(CAV_Y1 + GROOVE[2]), 'stroke="#c00" fill="none" stroke-width="0.2" stroke-dasharray="1 0.5"')
 # nut pocket
-rect(rz(NUT_Z + NUT_AF / 2), fy(CAV_Y1), rz(NUT_Z - NUT_AF / 2), fy(CAV_Y1 + NUT_T), HID)
-rect(rz(NUT_Z + TRIPOD_HOLE / 2), fy(CAV_Y1 + NUT_T), rz(NUT_Z - TRIPOD_HOLE / 2), fy(OY1), HID)
+rect(rz(NUT_Z + 6.6), fy(OY1 - NUT_WALL - NUT_T), rz(Z_LID_IN), fy(OY1 - NUT_WALL), HID)
+rect(rz(NUT_Z + TRIPOD_HOLE / 2), fy(OY1 - NUT_WALL), rz(NUT_Z - TRIPOD_HOLE / 2), fy(OY1), HID)
 text(rz(Z_FRONT_OUT), fy(OY0) - 3, 'RIGHT SIDE (section)', 3.5, bold=True)
 dim_h(rz(Z_FRONT_OUT), rz(Z_BACK_OUT), fy(OY1) + 9, f'{D:.0f}', fy(OY1))
 dim_h(rz(Z_FRONT_IN), rz(0), fy(OY1) + 4, f'{Z_FRONT_IN}', fy(CAV_Y1))
@@ -224,14 +225,15 @@ notes = [
     f'  plus a {PLINTH:.0f} mm solid plinth at the bottom for the tripod nut.',
     'Parts: front shell (front + side walls + plinth) and a flat back lid.',
     f'Assembly: 4x M3 heat-set inserts in Ø{BOSS_D} front bosses ({Z_FRONT_IN} high),',
-    '  M3x18 screws from the back through lid spacer tubes and PCB holes.',
+    '  M3x16 screws from the back through lid spacer tubes and PCB holes.',
     f'Radome: front wall {RADOME} mm over the radar, solid infill, no metal/paint;',
     '  keep the antenna-to-wall gap small (<1 mm) or tune wall to ~3.8 mm (lambda/2 PLA).',
     'Display: window = active area + 0.5. Glass position from seller photo:',
     '  MEASURE the module before printing; FPC (wider border) is on the left.',
     'Buttons: 6 mm tact switch top ~5 mm above PCB -> printed caps with',
     f'  ~{Z_FRONT_IN - 5 + 2:.1f} mm stem and retaining flange, or 13 mm tall tact switches.',
-    'Tripod: 1/4"-20 hex nut pressed into the pocket from inside before the PCB.',
+    'Tripod: 1/4"-20 hex nut slides into a slot in the plinth from the back; the lid closes it.',
+    'SW1 slot is open to the back (lever passes when the PCB drops in); a lid tongue fills it.',
     'Top face: USB-C (XIAO at top edge) and slot for the angled SW1 lever.',
     'Battery: LiPo 503450 (5x34x50, ~1000 mAh, ~6 h at ~150 mA) in a tray',
     '  on the lid (0.8 walls), held by a 1 mm foam pad. ~1.7 mm air gap to',
@@ -256,8 +258,9 @@ text(334, 269, 'Material: PETG / PLA', 3)
 text(tb[0] + 3, 281, f'Outer {W:.0f} x {H:.0f} x {D:.0f} mm', 3)
 text(334, 281, 'Scale 1:1 on A3', 3)
 
-svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">'
-       f'<rect width="420" height="297" fill="#fff"/><rect x="10" y="10" width="400" height="277" {THIN}/>'
-       + ''.join(out) + '</svg>')
-open(__file__.replace('enclosure_drawing.py', 'enclosure_v0.svg'), 'w', encoding='utf8').write(svg)
-print(f'outer {W} x {H} x {D} mm, nut z {NUT_Z}')
+if __name__ == '__main__':
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">'
+           f'<rect width="420" height="297" fill="#fff"/><rect x="10" y="10" width="400" height="277" {THIN}/>'
+           + ''.join(out) + '</svg>')
+    open(__file__.replace('enclosure_drawing.py', 'enclosure_v0.svg'), 'w', encoding='utf8').write(svg)
+    print(f'outer {W} x {H} x {D} mm, nut z {NUT_Z}')
