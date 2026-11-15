@@ -2,7 +2,7 @@
 
 A battery-powered Doppler speed radar that stands next to (or behind) a long jump runway and shows the athlete's approach speed on a TFT display. The goal is to see whether the run-up speed is consistent from jump to jump.
 
-> **Status: work in progress.** The schematic is complete. The PCB has its parts placed (111 × 49 mm, 4 × M3 holes on a 103 × 41 mm pattern), but **routing is not finished**. A first enclosure concept drawing exists. Nothing has been built or tested, and there is no firmware yet.
+> **Status: work in progress.** The schematic is complete. The PCB (4 layers, 111 × 49 mm, 4 × M3 holes on a 103 × 41 mm pattern) is routed and passes DRC with no unconnected items. It is under final review and has not been ordered. A first enclosure design exists (see below). Nothing has been built or tested, and there is no firmware yet.
 
 ## How it works
 
