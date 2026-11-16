@@ -8818,6 +8818,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C57112"
+			(at 205.74 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "AA filter for raw tap, 3.4 kHz"
 			(at 205.74 87.63 0)
 			(effects
@@ -8877,6 +8886,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 267.97 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C6120032"
 			(at 267.97 138.43 0)
 			(effects
 				(font
@@ -9279,6 +9297,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2870513"
+			(at 93.98 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SOT-23-5"
 			(at 93.98 60.96 0)
 			(effects
@@ -9347,6 +9374,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 132.08 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22795"
 			(at 132.08 55.88 0)
 			(effects
 				(font
@@ -9617,6 +9653,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25804"
+			(at 38.1 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Resistor"
 			(at 38.1 21.59 0)
 			(effects
@@ -9742,6 +9787,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 172.72 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 172.72 35.56 0)
 			(effects
 				(font
@@ -10142,6 +10196,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C21189"
+			(at 29.21 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Direct BL drive; remove when Q3 fitted"
 			(at 29.21 118.11 0)
 			(effects
@@ -10402,6 +10465,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C23162"
+			(at 198.12 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Raw preamp tap to A1"
 			(at 198.12 83.82 0)
 			(effects
@@ -10534,6 +10606,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25804"
+			(at 66.04 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Resistor"
 			(at 66.04 38.1 0)
 			(effects
@@ -10595,6 +10676,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 73.66 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15127"
 			(at 73.66 162.56 0)
 			(effects
 				(font
@@ -10714,7 +10804,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "BC847"
+		(property "Value" "MMBT3904"
 			(at 60.452 42.672 0)
 			(effects
 				(font
@@ -10733,6 +10823,15 @@
 			)
 		)
 		(property "Datasheet" "https://assets.nexperia.com/documents/data-sheet/BC847_SER.pdf"
+			(at 55.88 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C20526"
 			(at 55.88 38.1 0)
 			(effects
 				(font
@@ -11140,6 +11239,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C17513"
+			(at 64.77 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 0805 Chip Resistor, European Symbol, Alternate KiCad Library"
 			(at 64.77 63.5 0)
 			(effects
@@ -11199,6 +11307,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 101.6 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 101.6 53.34 0)
 			(effects
 				(font
@@ -11406,6 +11523,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C226259"
+			(at 195.58 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Power slide switch in series with battery +"
 			(at 195.58 151.13 0)
 			(effects
@@ -11468,6 +11594,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 224.79 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2837515"
 			(at 224.79 31.75 0)
 			(effects
 				(font
@@ -11617,6 +11752,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C6120032"
+			(at 71.12 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Radar supply bulk"
 			(at 71.12 24.13 0)
 			(effects
@@ -11676,6 +11820,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 205.74 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C57112"
 			(at 205.74 64.77 0)
 			(effects
 				(font
@@ -11780,7 +11933,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7304e78d-98c9-4783-8834-c8a584f3aa41")
 		(property "Reference" "R8"
 			(at 31.75 34.29 90)
@@ -11876,6 +12029,15 @@
 			)
 		)
 		(property "Datasheet" "https://datasheets.maximintegrated.com/en/ds/MAX9814.pdf"
+			(at 162.56 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C41714"
 			(at 162.56 58.42 0)
 			(effects
 				(font
@@ -12251,6 +12413,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C6120032"
+			(at 52.07 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 1210 MLCC capacitor, Alternate KiCad Library"
 			(at 52.07 58.42 0)
 			(effects
@@ -12405,6 +12576,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2689177"
+			(at 53.34 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SWD: 3V3 DIO CLK RST GND"
 			(at 53.34 99.06 0)
 			(effects
@@ -12484,6 +12664,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C15127"
+			(at 45.72 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SOT-23 P-MOSFET enchancement mode transistor, 30V, 4A, 1.4W, Alternate KiCAD Library"
 			(at 45.72 34.29 0)
 			(effects
@@ -12547,6 +12736,16 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SRN3015TA.pdf"
+			(at 260.35 321.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C5362464"
 			(at 260.35 321.92 0)
 			(effects
 				(font
@@ -12673,6 +12872,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1600"
+			(at 92.71 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 0603 MLCC capacitor, Alternate KiCad Library"
 			(at 92.71 83.82 0)
 			(effects
@@ -12704,7 +12912,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "9a0f0ef6-a169-4dcf-ba02-c27b0e224f8b")
 		(property "Reference" "U9"
@@ -13004,6 +13212,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1950"
+			(at 257.81 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 1210 MLCC capacitor, Alternate KiCad Library"
 			(at 257.81 138.43 0)
 			(effects
@@ -13065,6 +13282,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 170.18 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C15127"
 			(at 170.18 135.89 0)
 			(effects
 				(font
@@ -13143,6 +13369,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1950"
+			(at 133.35 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 1210 MLCC capacitor, Alternate KiCad Library"
 			(at 133.35 73.66 0)
 			(effects
@@ -13210,6 +13445,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C23162"
+			(at 199.39 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Resistor"
 			(at 199.39 60.96 0)
 			(effects
@@ -13269,6 +13513,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 172.72 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 172.72 40.64 0)
 			(effects
 				(font
@@ -13403,6 +13656,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 52.07 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C342711"
 			(at 52.07 63.5 0)
 			(effects
 				(font
@@ -13609,6 +13871,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C2837515"
+			(at 256.54 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Push button to GND"
 			(at 256.54 31.75 0)
 			(effects
@@ -13733,6 +14004,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 266.7 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C6120032"
 			(at 266.7 115.57 0)
 			(effects
 				(font
@@ -13873,6 +14153,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C22795"
+			(at 92.71 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Resistor"
 			(at 92.71 77.47 0)
 			(effects
@@ -13942,6 +14231,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C25803"
+			(at 91.44 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Q3 gate pull-up (BL off at boot), DNP by default"
 			(at 91.44 161.29 0)
 			(effects
@@ -14003,6 +14301,15 @@
 			)
 		)
 		(property "Datasheet" ""
+			(at 240.03 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17209540"
 			(at 240.03 71.12 0)
 			(effects
 				(font
@@ -14235,6 +14542,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C17477"
+			(at 80.01 20.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "Radar supply filter: 0R first, ferrite bead (e.g. BLM21PG221) if TPS63900 ripple shows up"
 			(at 80.01 20.32 0)
 			(effects
@@ -14361,6 +14677,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 125.73 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1623"
 			(at 125.73 73.66 0)
 			(effects
 				(font
@@ -14698,6 +15023,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C17513"
+			(at 92.71 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 0805 Chip Resistor, European Symbol, Alternate KiCad Library"
 			(at 92.71 41.91 0)
 			(effects
@@ -14822,6 +15156,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 200.66 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23029"
 			(at 200.66 133.35 0)
 			(effects
 				(font
@@ -14958,6 +15301,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1623"
+			(at 123.19 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 0603 MLCC capacitor, Alternate KiCad Library"
 			(at 123.19 60.96 0)
 			(effects
@@ -15017,6 +15369,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 132.08 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22795"
 			(at 132.08 53.34 0)
 			(effects
 				(font
@@ -15288,6 +15649,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C1623"
+			(at 130.81 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(property "Description" "SMD 0603 MLCC capacitor, Alternate KiCad Library"
 			(at 130.81 43.18 0)
 			(effects
@@ -15414,6 +15784,16 @@
 			)
 		)
 		(property "Datasheet" "https://www.ti.com/lit/gpn/tps63900?HQS=ti-null-null-sf-df-pf-sep-wwe&DCM=yes"
+			(at 236.22 318.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1518762"
 			(at 236.22 318.11 0)
 			(effects
 				(font
@@ -15823,6 +16203,15 @@
 			)
 		)
 		(property "Datasheet" "~"
+			(at 274.32 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C173752"
 			(at 274.32 72.39 0)
 			(effects
 				(font
