@@ -47,3 +47,4 @@ Thumbs.db
 00_Documentation/*.docx
 
 __pycache__/
+**/production/backups/
