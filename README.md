@@ -2,7 +2,7 @@
 
 A battery-powered Doppler speed radar that stands next to (or behind) a long jump runway and shows the athlete's approach speed on a TFT display. The goal is to see whether the run-up speed is consistent from jump to jump.
 
-> **Status: work in progress.** The schematic is complete. The PCB (4 layers, 111 × 49 mm, 4 × M3 holes on a 103 × 41 mm pattern) is routed and passes DRC with no unconnected items. It is under final review and has not been ordered. A first enclosure design exists (see below). A first firmware compiles but has not run on hardware. Nothing has been built or tested.
+> **Status: work in progress.** The schematic is complete. The PCB (4 layers, 111 × 49 mm, 4 × M3 holes on a 103 × 41 mm pattern) is routed and passes DRC with no unconnected items. The first boards (V1) were ordered at JLCPCB on 17 November 2026; the fabrication files are in `20_Hardware/MAR07_SpeedRadar/production/`. A first enclosure design exists (see below). A first firmware compiles but has not run on hardware. Nothing has been assembled or tested yet.
 
 ## How it works
 
@@ -38,7 +38,7 @@ A long jump approach peaks at about 8 to 11 m/s, so the signal of interest is ro
 | D8 / D9 / D10 | Display SCK / CS / MOSI |
 | SWD pads (RST/DIO/CLK) | 1.27 mm header J5 |
 
-The display header's pin order (GND, VCC, SCL, SDA, RES, DC, CS, BLK) is taken from vendor listings that don't fully agree. **Check it against the silkscreen on your module before ordering the PCB.**
+The display header's pin order (GND, VCC, SCL, SDA, RES, DC, CS, BLK) is taken from vendor listings that don't fully agree. **Check it against the silkscreen on your module before ordering the PCB.** V1 was ordered with this pin order; it still has to be confirmed on the real module.
 
 ## Prototype options
 
@@ -113,4 +113,6 @@ Datasheets (not included in this repository):
 
 ## License
 
-TBD
+Apache License 2.0, see [LICENSE](LICENSE). You may use, change and build on the hardware, firmware and enclosure files, also commercially, as long as you keep the notices.
+
+The analog front end is based on limpkin's CDM324 backpack, which is MIT licensed; its notice is kept in [NOTICE](NOTICE).
